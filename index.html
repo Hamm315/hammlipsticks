@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glam Lips - Premium Lipsticks</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+.product-card {
+transition: all 0.3s ease;
+}
+.product-card:hover {
+transform: translateY(-5px);
+}
+.color-swatch {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.color-swatch:hover {
+transform: scale(1.1);
+}
+.color-swatch.selected {
+border: 2px solid #FF4B81;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #FF4B81;
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF4B81',secondary:'#FF8FB3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+.product-card {
+transition: all 0.3s ease;
+}
+.product-card:hover {
+transform: translateY(-5px);
+}
+.color-swatch {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.color-swatch:hover {
+transform: scale(1.1);
+}
+.color-swatch.selected {
+border: 2px solid #FF4B81;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #FF4B81;
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF4B81',secondary:'#FF8FB3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-gray-600 hover:text-primary">Home</a>
+<a href="#products" class="text-gray-600 hover:text-primary">Products</a>
+<a href="#bestsellers" class="text-gray-600 hover:text-primary">Best Sellers</a>
+<a href="#about" class="text-gray-600 hover:text-primary">About</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<input type="text" placeholder="Search lipsticks..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-48">
+<i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+</div>
+<button class="w-10 h-10 flex items-center justify-center relative">
+<i class="ri-shopping-cart-line text-xl text-gray-600 hover:text-primary"></i>
+<span class="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">0</span>
+</button>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-r from-primary/5 to-secondary/5 py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h1 class="text-4xl md:text-5xl font-bold mb-6">Discover Your Perfect Shade</h1>
+<p class="text-lg text-gray-600 mb-8">Experience luxurious, long-lasting lipsticks that enhance your natural beauty. Find your signature color from our premium collection.</p>
+<div class="flex space-x-4">
+<a href="#products" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Shop Now</a>
+<a href="#bestsellers" class="bg-white hover:bg-gray-50 text-primary border border-primary px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Best Sellers</a>
+</div>
+</div>
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=luxury%20lipstick%20product%20photography%20on%20elegant%20minimal%20background%2C%20soft%20lighting%2C%20premium%20cosmetic%20product%20shot%2C%20high-end%20beauty%20product%20display%2C%20professional%20studio%20lighting%2C%20clean%20composition%20with%20soft%20shadows%2C%20beauty%20product%20marketing%20image&width=600&height=600&seq=1&orientation=squarish" alt="Featured Lipstick" class="rounded-lg shadow-xl">
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-12 text-center">Shop by Category</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+<img src="https://readdy.ai/api/search-image?query=matte%20lipstick%20collection%20arranged%20beautifully%20on%20minimal%20background%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20product%20display%2C%20soft%20lighting%2C%20high-end%20product%20shot&width=400&height=300&seq=2&orientation=landscape" alt="Matte Lipsticks" class="w-full h-64 object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+<div class="p-6 w-full">
+<h3 class="text-xl font-semibold text-white mb-2">Matte Lipsticks</h3>
+<p class="text-white/80 text-sm mb-4">Long-lasting, rich color that stays put</p>
+<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
+Shop Collection <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+<img src="https://readdy.ai/api/search-image?query=glossy%20lipstick%20collection%20with%20shine%20effect%2C%20professional%20beauty%20product%20photography%2C%20luxury%20cosmetics%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=3&orientation=landscape" alt="Glossy Lipsticks" class="w-full h-64 object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+<div class="p-6 w-full">
+<h3 class="text-xl font-semibold text-white mb-2">Glossy Lipsticks</h3>
+<p class="text-white/80 text-sm mb-4">High-shine finish for glamorous lips</p>
+<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
+Shop Collection <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+<img src="https://readdy.ai/api/search-image?query=metallic%20lipstick%20collection%20with%20shimmer%20effect%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20products%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=4&orientation=landscape" alt="Metallic Lipsticks" class="w-full h-64 object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+<div class="p-6 w-full">
+<h3 class="text-xl font-semibold text-white mb-2">Metallic Lipsticks</h3>
+<p class="text-white/80 text-sm mb-4">Stunning shimmer for bold looks</p>
+<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
+Shop Collection <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Best Sellers -->
+<section id="bestsellers" class="py-16 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-12 text-center">Best Sellers</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=elegant%20red%20matte%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=5&orientation=squarish" alt="Classic Red Matte" class="w-full h-48 object-cover">
+<div class="p-4">
+<h3 class="font-semibold mb-2">Classic Red Matte</h3>
+<p class="text-gray-600 text-sm mb-3">Long-lasting matte finish</p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-bold text-primary">$24.99</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=pink%20nude%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=6&orientation=squarish" alt="Nude Pink Gloss" class="w-full h-48 object-cover">
+<div class="p-4">
+<h3 class="font-semibold mb-2">Nude Pink Gloss</h3>
+<p class="text-gray-600 text-sm mb-3">Hydrating glossy formula</p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-bold text-primary">$22.99</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=metallic%20rose%20gold%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=7&orientation=squarish" alt="Rose Gold Metallic" class="w-full h-48 object-cover">
+<div class="p-4">
+<h3 class="font-semibold mb-2">Rose Gold Metallic</h3>
+<p class="text-gray-600 text-sm mb-3">Shimmer metallic finish</p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-bold text-primary">$26.99</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=deep%20burgundy%20matte%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=8&orientation=squarish" alt="Deep Burgundy" class="w-full h-48 object-cover">
+<div class="p-4">
+<h3 class="font-semibold mb-2">Deep Burgundy</h3>
+<p class="text-gray-600 text-sm mb-3">Rich velvet texture</p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-bold text-primary">$25.99</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-12 text-center">Why Choose Our Lipsticks</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
+<i class="ri-leaf-line text-2xl text-primary"></i>
+</div>
+<h3 class="font-semibold mb-2">Natural Ingredients</h3>
+<p class="text-gray-600 text-sm">Made with organic and natural ingredients that nourish your lips</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
+<i class="ri-time-line text-2xl text-primary"></i>
+</div>
+<h3 class="font-semibold mb-2">Long-lasting</h3>
+<p class="text-gray-600 text-sm">Up to 12 hours of wear without the need for touch-ups</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
+<i class="ri-test-tube-line text-2xl text-primary"></i>
+</div>
+<h3 class="font-semibold mb-2">Dermatologist Tested</h3>
+<p class="text-gray-600 text-sm">Safe for all skin types and thoroughly tested</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
+<i class="ri-recycle-line text-2xl text-primary"></i>
+</div>
+<h3 class="font-semibold mb-2">Eco-friendly</h3>
+<p class="text-gray-600 text-sm">Sustainable packaging and cruelty-free production</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+<p class="text-gray-600 mb-8">Subscribe to our newsletter for new products, tips, and exclusive offers</p>
+<form class="max-w-md mx-auto flex gap-4">
+<input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-button border-none text-sm">
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium whitespace-nowrap">Subscribe</button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-primary mb-4 block">logo</a>
+<p class="text-gray-600 text-sm">Premium lipsticks for every occasion. Made with love and care for your beauty.</p>
+</div>
+<div>
+<h3 class="font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="text-gray-600 hover:text-primary">About Us</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Contact</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">FAQs</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Shipping</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold mb-4">Categories</h3>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="text-gray-600 hover:text-primary">Matte Lipsticks</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Glossy Lipsticks</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Metallic Lipsticks</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Limited Edition</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold mb-4">Connect With Us</h3>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<i class="ri-pinterest-fill"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 mt-12 pt-8 text-center text-sm text-gray-600">
+<p>© 2025 Glam Lips. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-r from-primary/5 to-secondary/5 py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h1 class="text-4xl md:text-5xl font-bold mb-6">Discover Your Perfect Shade</h1>
+<p class="text-lg text-gray-600 mb-8">Experience luxurious, long-lasting lipsticks that enhance your natural beauty. Find your signature color from our premium collection.</p>
+<div class="flex space-x-4">
+<a href="#products" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Shop Now</a>
+<a href="#bestsellers" class="bg-white hover:bg-gray-50 text-primary border border-primary px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Best Sellers</a>
+</div>
+</div>
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=luxury%20lipstick%20product%20photography%20on%20elegant%20minimal%20background%2C%20soft%20lighting%2C%20premium%20cosmetic%20product%20shot%2C%20high-end%20beauty%20product%20display%2C%20professional%20studio%20lighting%2C%20clean%20composition%20with%20soft%20shadows%2C%20beauty%20product%20marketing%20image&width=600&height=600&seq=1&orientation=squarish" alt="Featured Lipstick" class="rounded-lg shadow-xl">
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-12 text-center">Shop by Category</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+<img src="https://readdy.ai/api/search-image?query=matte%20lipstick%20collection%20arranged%20beautifully%20on%20minimal%20background%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20product%20display%2C%20soft%20lighting%2C%20high-end%20product%20shot&width=400&height=300&seq=2&orientation=landscape" alt="Matte Lipsticks" class="w-full h-64 object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+<div class="p-6 w-full">
+<h3 class="text-xl font-semibold text-white mb-2">Matte Lipsticks</h3>
+<p class="text-white/80 text-sm mb-4">Long-lasting, rich color that stays put</p>
+<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
+Shop Collection <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+<img src="https://readdy.ai/api/search-image?query=glossy%20lipstick%20collection%20with%20shine%20effect%2C%20professional%20beauty%20product%20photography%2C%20luxury%20cosmetics%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=3&orientation=landscape" alt="Glossy Lipsticks" class="w-full h-64 object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+<div class="p-6 w-full">
+<h3 class="text-xl font-semibold text-white mb-2">Glossy Lipsticks</h3>
+<p class="text-white/80 text-sm mb-4">High-shine finish for glamorous lips</p>
+<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
+Shop Collection <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+<img src="https://readdy.ai/api/search-image?query=metallic%20lipstick%20collection%20with%20shimmer%20effect%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20products%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=4&orientation=landscape" alt="Metallic Lipsticks" class="w-full h-64 object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+<div class="p-6 w-full">
+<h3 class="text-xl font-semibold text-white mb-2">Metallic Lipsticks</h3>
+<p class="text-white/80 text-sm mb-4">Stunning shimmer for bold looks</p>
+<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
+Shop Collection <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Media Links -->
+<div class="flex space-x-4 mb-8">
+<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white">
+<i class="ri-github-fill ri-lg"></i>
+</a>
+<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-blue-400 text-white">
+<i class="ri-twitter-fill ri-lg"></i>
+</a>
+<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-red-500 text-white">
+<i class="ri-instagram-fill ri-lg"></i>
+</a>
+</div>
+<!-- Contact Button -->
+<a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap">
+Get in Touch
+</a>
+</header>
+<!-- Main Content -->
+<main>
+<!-- About Section -->
+<section class="mb-16">
+<div class="bg-white rounded-lg shadow-md p-8 transition-all hover:shadow-lg">
+<h2 class="text-2xl font-bold mb-6 flex items-center">
+<span class="w-8 h-8 flex items-center justify-center mr-3 bg-primary/10 rounded-full text-primary">
+<i class="ri-user-line"></i>
+</span>
+<!-- Footer -->
+<footer class="text-center text-gray-600 py-8">
+
+<script id="cartHandling">
+document.addEventListener('DOMContentLoaded', function() {
+let cartCount = 0;
+const cartCountElement = document.querySelector('.ri-shopping-cart-line').nextElementSibling;
+document.querySelectorAll('.product-card button').forEach(button => {
+button.addEventListener('click', function() {
+cartCount++;
+cartCountElement.textContent = cartCount;
+const productName = this.closest('.product-card').querySelector('h3').textContent;
+const toast = document.createElement('div');
+toast.className = 'fixed bottom-4 right-4 bg-primary text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
+toast.textContent = `${productName} added to cart`;
+document.body.appendChild(toast);
+setTimeout(() => {
+toast.remove();
+}, 3000);
+});
+});
+});
+</script>
+<script id="newsletterHandling">
+document.addEventListener('DOMContentLoaded', function() {
+const newsletterForm = document.querySelector('form');
+newsletterForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const emailInput = this.querySelector('input[type="email"]');
+if (!emailInput.value) {
+const toast = document.createElement('div');
+toast.className = 'fixed bottom-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+toast.textContent = 'Please enter your email address';
+document.body.appendChild(toast);
+setTimeout(() => toast.remove(), 3000);
+return;
+}
+emailInput.value = '';
+const toast = document.createElement('div');
+toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+toast.textContent = 'Thank you for subscribing!';
+document.body.appendChild(toast);
+setTimeout(() => toast.remove(), 3000);
+});
+});
+</script>
+</body>
+</html>

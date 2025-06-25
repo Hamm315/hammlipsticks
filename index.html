@@ -1,446 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glam Lips - Premium Lipsticks</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Inter', sans-serif;
-scroll-behavior: smooth;
-}
-.product-card {
-transition: all 0.3s ease;
-}
-.product-card:hover {
-transform: translateY(-5px);
-}
-.color-swatch {
-width: 24px;
-height: 24px;
-border-radius: 50%;
-cursor: pointer;
-transition: all 0.2s ease;
-}
-.color-swatch:hover {
-transform: scale(1.1);
-}
-.color-swatch.selected {
-border: 2px solid #FF4B81;
-}
-input:focus, textarea:focus {
-outline: none;
-border-color: #FF4B81;
-}
-</style>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#FF4B81',secondary:'#FF8FB3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-.product-card {
-transition: all 0.3s ease;
-}
-.product-card:hover {
-transform: translateY(-5px);
-}
-.color-swatch {
-width: 24px;
-height: 24px;
-border-radius: 50%;
-cursor: pointer;
-transition: all 0.2s ease;
-}
-.color-swatch:hover {
-transform: scale(1.1);
-}
-.color-swatch.selected {
-border: 2px solid #FF4B81;
-}
-input:focus, textarea:focus {
-outline: none;
-border-color: #FF4B81;
-}
-</style>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#FF4B81',secondary:'#FF8FB3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lipstick Shop - Login</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/2533260/pexels-photo-2533260.jpeg?auto=compress&w=1200&q=80') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+        }
+        .lipstick-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 228, 235, 0.85);
+            z-index: 0;
+        }
+        #login-container {
+            position: relative;
+            z-index: 1;
+        }
+        .lipstick-card img {
+            height: 180px;
+            object-fit: cover;
+        }
+        .lipstick-card {
+            margin-bottom: 30px;
+        }
+        .lipstick-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #d72660;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .lipstick-login-card {
+            border: none;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(215,38,96,0.15);
+            background: rgba(255,255,255,0.97);
+        }
+        .lipstick-login-btn {
+            background: linear-gradient(90deg, #d72660 0%, #f46036 100%);
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 2rem;
+            transition: background 0.2s;
+        }
+        .lipstick-login-btn:hover {
+            background: linear-gradient(90deg, #f46036 0%, #d72660 100%);
+        }
+        .lipstick-form-label {
+            color: #d72660;
+            font-weight: 500;
+        }
+        .lipstick-form-control:focus {
+            border-color: #d72660;
+            box-shadow: 0 0 0 0.2rem rgba(215,38,96,.15);
+        }
+        .lipstick-forgot-link {
+            color: #d72660;
+        }
+        .lipstick-forgot-link:hover {
+            color: #f46036;
+            text-decoration: underline;
+        }
+        .pagination .page-link {
+            color: #d72660;
+        }
+        .pagination .active .page-link {
+            background-color: #d72660;
+            border-color: #d72660;
+            color: #fff;
+        }
+        .cart-table th, .cart-table td {
+            vertical-align: middle;
+        }
+        .payment-methods label {
+            font-weight: 500;
+            color: #d72660;
+        }
+        .credit-card-fields, .bank-transfer-fields {
+            display: none;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-800">
-<header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-16">
-<div class="flex items-center">
-<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a href="#" class="text-gray-600 hover:text-primary">Home</a>
-<a href="#products" class="text-gray-600 hover:text-primary">Products</a>
-<a href="#bestsellers" class="text-gray-600 hover:text-primary">Best Sellers</a>
-<a href="#about" class="text-gray-600 hover:text-primary">About</a>
-</div>
-<div class="flex items-center space-x-4">
-<div class="relative">
-<input type="text" placeholder="Search lipsticks..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-48">
-<i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-</div>
-<button class="w-10 h-10 flex items-center justify-center relative">
-<i class="ri-shopping-cart-line text-xl text-gray-600 hover:text-primary"></i>
-<span class="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">0</span>
-</button>
-</div>
-</div>
-</nav>
-</header>
-<main class="pt-16">
-<!-- Hero Section -->
-<section class="relative bg-gradient-to-r from-primary/5 to-secondary/5 py-20">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-<div>
-<h1 class="text-4xl md:text-5xl font-bold mb-6">Discover Your Perfect Shade</h1>
-<p class="text-lg text-gray-600 mb-8">Experience luxurious, long-lasting lipsticks that enhance your natural beauty. Find your signature color from our premium collection.</p>
-<div class="flex space-x-4">
-<a href="#products" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Shop Now</a>
-<a href="#bestsellers" class="bg-white hover:bg-gray-50 text-primary border border-primary px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Best Sellers</a>
-</div>
-</div>
-<div class="relative">
-<img src="https://readdy.ai/api/search-image?query=luxury%20lipstick%20product%20photography%20on%20elegant%20minimal%20background%2C%20soft%20lighting%2C%20premium%20cosmetic%20product%20shot%2C%20high-end%20beauty%20product%20display%2C%20professional%20studio%20lighting%2C%20clean%20composition%20with%20soft%20shadows%2C%20beauty%20product%20marketing%20image&width=600&height=600&seq=1&orientation=squarish" alt="Featured Lipstick" class="rounded-lg shadow-xl">
-</div>
-</div>
-</div>
-</section>
-<!-- Featured Categories -->
-<section class="py-16 bg-white">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold mb-12 text-center">Shop by Category</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
-<img src="https://readdy.ai/api/search-image?query=matte%20lipstick%20collection%20arranged%20beautifully%20on%20minimal%20background%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20product%20display%2C%20soft%20lighting%2C%20high-end%20product%20shot&width=400&height=300&seq=2&orientation=landscape" alt="Matte Lipsticks" class="w-full h-64 object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-<div class="p-6 w-full">
-<h3 class="text-xl font-semibold text-white mb-2">Matte Lipsticks</h3>
-<p class="text-white/80 text-sm mb-4">Long-lasting, rich color that stays put</p>
-<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
-Shop Collection <i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
-<img src="https://readdy.ai/api/search-image?query=glossy%20lipstick%20collection%20with%20shine%20effect%2C%20professional%20beauty%20product%20photography%2C%20luxury%20cosmetics%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=3&orientation=landscape" alt="Glossy Lipsticks" class="w-full h-64 object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-<div class="p-6 w-full">
-<h3 class="text-xl font-semibold text-white mb-2">Glossy Lipsticks</h3>
-<p class="text-white/80 text-sm mb-4">High-shine finish for glamorous lips</p>
-<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
-Shop Collection <i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
-<img src="https://readdy.ai/api/search-image?query=metallic%20lipstick%20collection%20with%20shimmer%20effect%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20products%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=4&orientation=landscape" alt="Metallic Lipsticks" class="w-full h-64 object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-<div class="p-6 w-full">
-<h3 class="text-xl font-semibold text-white mb-2">Metallic Lipsticks</h3>
-<p class="text-white/80 text-sm mb-4">Stunning shimmer for bold looks</p>
-<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
-Shop Collection <i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Best Sellers -->
-<section id="bestsellers" class="py-16 bg-gray-50">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold mb-12 text-center">Best Sellers</h2>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-<img src="https://readdy.ai/api/search-image?query=elegant%20red%20matte%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=5&orientation=squarish" alt="Classic Red Matte" class="w-full h-48 object-cover">
-<div class="p-4">
-<h3 class="font-semibold mb-2">Classic Red Matte</h3>
-<p class="text-gray-600 text-sm mb-3">Long-lasting matte finish</p>
-<div class="flex justify-between items-center">
-<span class="text-lg font-bold text-primary">$24.99</span>
-<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
-</div>
-</div>
-</div>
-<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-<img src="https://readdy.ai/api/search-image?query=pink%20nude%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=6&orientation=squarish" alt="Nude Pink Gloss" class="w-full h-48 object-cover">
-<div class="p-4">
-<h3 class="font-semibold mb-2">Nude Pink Gloss</h3>
-<p class="text-gray-600 text-sm mb-3">Hydrating glossy formula</p>
-<div class="flex justify-between items-center">
-<span class="text-lg font-bold text-primary">$22.99</span>
-<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
-</div>
-</div>
-</div>
-<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-<img src="https://readdy.ai/api/search-image?query=metallic%20rose%20gold%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=7&orientation=squarish" alt="Rose Gold Metallic" class="w-full h-48 object-cover">
-<div class="p-4">
-<h3 class="font-semibold mb-2">Rose Gold Metallic</h3>
-<p class="text-gray-600 text-sm mb-3">Shimmer metallic finish</p>
-<div class="flex justify-between items-center">
-<span class="text-lg font-bold text-primary">$26.99</span>
-<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
-</div>
-</div>
-</div>
-<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-<img src="https://readdy.ai/api/search-image?query=deep%20burgundy%20matte%20lipstick%20product%20photography%2C%20luxury%20cosmetic%20on%20white%20background%2C%20professional%20beauty%20product%20shot%2C%20high-end%20makeup&width=300&height=300&seq=8&orientation=squarish" alt="Deep Burgundy" class="w-full h-48 object-cover">
-<div class="p-4">
-<h3 class="font-semibold mb-2">Deep Burgundy</h3>
-<p class="text-gray-600 text-sm mb-3">Rich velvet texture</p>
-<div class="flex justify-between items-center">
-<span class="text-lg font-bold text-primary">$25.99</span>
-<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-button text-sm whitespace-nowrap">Add to Cart</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Features -->
-<section class="py-16 bg-white">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold mb-12 text-center">Why Choose Our Lipsticks</h2>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="text-center">
-<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
-<i class="ri-leaf-line text-2xl text-primary"></i>
-</div>
-<h3 class="font-semibold mb-2">Natural Ingredients</h3>
-<p class="text-gray-600 text-sm">Made with organic and natural ingredients that nourish your lips</p>
-</div>
-<div class="text-center">
-<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
-<i class="ri-time-line text-2xl text-primary"></i>
-</div>
-<h3 class="font-semibold mb-2">Long-lasting</h3>
-<p class="text-gray-600 text-sm">Up to 12 hours of wear without the need for touch-ups</p>
-</div>
-<div class="text-center">
-<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
-<i class="ri-test-tube-line text-2xl text-primary"></i>
-</div>
-<h3 class="font-semibold mb-2">Dermatologist Tested</h3>
-<p class="text-gray-600 text-sm">Safe for all skin types and thoroughly tested</p>
-</div>
-<div class="text-center">
-<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary/10">
-<i class="ri-recycle-line text-2xl text-primary"></i>
-</div>
-<h3 class="font-semibold mb-2">Eco-friendly</h3>
-<p class="text-gray-600 text-sm">Sustainable packaging and cruelty-free production</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Newsletter -->
-<section class="py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
-<p class="text-gray-600 mb-8">Subscribe to our newsletter for new products, tips, and exclusive offers</p>
-<form class="max-w-md mx-auto flex gap-4">
-<input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-button border-none text-sm">
-<button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium whitespace-nowrap">Subscribe</button>
-</form>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-white py-12">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div>
-<a href="#" class="text-2xl font-['Pacifico'] text-primary mb-4 block">logo</a>
-<p class="text-gray-600 text-sm">Premium lipsticks for every occasion. Made with love and care for your beauty.</p>
-</div>
-<div>
-<h3 class="font-semibold mb-4">Quick Links</h3>
-<ul class="space-y-2 text-sm">
-<li><a href="#" class="text-gray-600 hover:text-primary">About Us</a></li>
-<li><a href="#" class="text-gray-600 hover:text-primary">Contact</a></li>
-<li><a href="#" class="text-gray-600 hover:text-primary">FAQs</a></li>
-<li><a href="#" class="text-gray-600 hover:text-primary">Shipping</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-semibold mb-4">Categories</h3>
-<ul class="space-y-2 text-sm">
-<li><a href="#" class="text-gray-600 hover:text-primary">Matte Lipsticks</a></li>
-<li><a href="#" class="text-gray-600 hover:text-primary">Glossy Lipsticks</a></li>
-<li><a href="#" class="text-gray-600 hover:text-primary">Metallic Lipsticks</a></li>
-<li><a href="#" class="text-gray-600 hover:text-primary">Limited Edition</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-semibold mb-4">Connect With Us</h3>
-<div class="flex space-x-4">
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-<i class="ri-facebook-fill"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-<i class="ri-instagram-fill"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-<i class="ri-twitter-fill"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-<i class="ri-pinterest-fill"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="border-t border-gray-200 mt-12 pt-8 text-center text-sm text-gray-600">
-<p>© 2025 Glam Lips. All rights reserved.</p>
-</div>
-</div>
-</footer>
-<main class="pt-16">
-<!-- Hero Section -->
-<section class="relative bg-gradient-to-r from-primary/5 to-secondary/5 py-20">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-<div>
-<h1 class="text-4xl md:text-5xl font-bold mb-6">Discover Your Perfect Shade</h1>
-<p class="text-lg text-gray-600 mb-8">Experience luxurious, long-lasting lipsticks that enhance your natural beauty. Find your signature color from our premium collection.</p>
-<div class="flex space-x-4">
-<a href="#products" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Shop Now</a>
-<a href="#bestsellers" class="bg-white hover:bg-gray-50 text-primary border border-primary px-8 py-3 rounded-button font-medium transition-all whitespace-nowrap">Best Sellers</a>
-</div>
-</div>
-<div class="relative">
-<img src="https://readdy.ai/api/search-image?query=luxury%20lipstick%20product%20photography%20on%20elegant%20minimal%20background%2C%20soft%20lighting%2C%20premium%20cosmetic%20product%20shot%2C%20high-end%20beauty%20product%20display%2C%20professional%20studio%20lighting%2C%20clean%20composition%20with%20soft%20shadows%2C%20beauty%20product%20marketing%20image&width=600&height=600&seq=1&orientation=squarish" alt="Featured Lipstick" class="rounded-lg shadow-xl">
-</div>
-</div>
-</div>
-</section>
-<!-- Featured Categories -->
-<section class="py-16 bg-white">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold mb-12 text-center">Shop by Category</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
-<img src="https://readdy.ai/api/search-image?query=matte%20lipstick%20collection%20arranged%20beautifully%20on%20minimal%20background%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20product%20display%2C%20soft%20lighting%2C%20high-end%20product%20shot&width=400&height=300&seq=2&orientation=landscape" alt="Matte Lipsticks" class="w-full h-64 object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-<div class="p-6 w-full">
-<h3 class="text-xl font-semibold text-white mb-2">Matte Lipsticks</h3>
-<p class="text-white/80 text-sm mb-4">Long-lasting, rich color that stays put</p>
-<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
-Shop Collection <i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
-<img src="https://readdy.ai/api/search-image?query=glossy%20lipstick%20collection%20with%20shine%20effect%2C%20professional%20beauty%20product%20photography%2C%20luxury%20cosmetics%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=3&orientation=landscape" alt="Glossy Lipsticks" class="w-full h-64 object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-<div class="p-6 w-full">
-<h3 class="text-xl font-semibold text-white mb-2">Glossy Lipsticks</h3>
-<p class="text-white/80 text-sm mb-4">High-shine finish for glamorous lips</p>
-<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
-Shop Collection <i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
-<img src="https://readdy.ai/api/search-image?query=metallic%20lipstick%20collection%20with%20shimmer%20effect%2C%20professional%20cosmetic%20photography%2C%20luxury%20beauty%20products%20on%20elegant%20background%2C%20soft%20lighting%2C%20premium%20product%20display&width=400&height=300&seq=4&orientation=landscape" alt="Metallic Lipsticks" class="w-full h-64 object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-<div class="p-6 w-full">
-<h3 class="text-xl font-semibold text-white mb-2">Metallic Lipsticks</h3>
-<p class="text-white/80 text-sm mb-4">Stunning shimmer for bold looks</p>
-<a href="#" class="inline-flex items-center text-white hover:text-primary transition-colors">
-Shop Collection <i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Social Media Links -->
-<div class="flex space-x-4 mb-8">
-<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white">
-<i class="ri-linkedin-fill ri-lg"></i>
-</a>
-<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white">
-<i class="ri-github-fill ri-lg"></i>
-</a>
-<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-blue-400 text-white">
-<i class="ri-twitter-fill ri-lg"></i>
-</a>
-<a href="#" class="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-red-500 text-white">
-<i class="ri-instagram-fill ri-lg"></i>
-</a>
-</div>
-<!-- Contact Button -->
-<a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap">
-Get in Touch
-</a>
-</header>
-<!-- Main Content -->
-<main>
-<!-- About Section -->
-<section class="mb-16">
-<div class="bg-white rounded-lg shadow-md p-8 transition-all hover:shadow-lg">
-<h2 class="text-2xl font-bold mb-6 flex items-center">
-<span class="w-8 h-8 flex items-center justify-center mr-3 bg-primary/10 rounded-full text-primary">
-<i class="ri-user-line"></i>
-</span>
-<!-- Footer -->
-<footer class="text-center text-gray-600 py-8">
+<body>
+    <div class="lipstick-overlay"></div>
+    <!-- Login Form -->
+    <div class="container" id="login-container">
+        <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+            <div class="col-md-7 col-lg-5">
+                <div class="lipstick-brand mb-2">
+                    <span style="font-size:2.5rem;">💄</span> Lipstick Shop
+                </div>
+                <div class="card lipstick-login-card shadow">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4" style="color:#d72660;font-family:'Playfair Display',serif;font-weight:bold;">
+                            Welcome Back!
+                        </h3>
+                        <p class="text-center mb-4" style="color:#f46036;font-size:1.1rem;">
+                            Sign in to discover the perfect lipstick for you.
+                        </p>
+                        <form id="loginForm" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputAccount" class="lipstick-form-label">Account</label>
+                                <input type="text" class="form-control lipstick-form-control" id="inputAccount" placeholder="Enter account" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="lipstick-form-label">Password</label>
+                                <input type="password" class="form-control lipstick-form-control" id="inputPassword" placeholder="Password" required>
+                            </div>
+                            <div id="loginError" class="text-danger mb-2" style="display:none;">Invalid account or password.</div>
+                            <div id="passwordError" class="text-danger mb-2" style="display:none;">Password cannot contain ",", ".", or fullwidth characters.</div>
+                            <button type="submit" class="btn lipstick-login-btn btn-block py-2">Login</button>
+                        </form>
+                        <p class="mt-3 mb-0 text-center">
+                            <a href="#" class="lipstick-forgot-link">Forgot password?</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-4" style="color:#d72660;font-size:1.1rem;">
+                    <span style="font-size:1.5rem;">💋</span> <b>Discover your perfect shade!</b>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script id="cartHandling">
-document.addEventListener('DOMContentLoaded', function() {
-let cartCount = 0;
-const cartCountElement = document.querySelector('.ri-shopping-cart-line').nextElementSibling;
-document.querySelectorAll('.product-card button').forEach(button => {
-button.addEventListener('click', function() {
-cartCount++;
-cartCountElement.textContent = cartCount;
-const productName = this.closest('.product-card').querySelector('h3').textContent;
-const toast = document.createElement('div');
-toast.className = 'fixed bottom-4 right-4 bg-primary text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
-toast.textContent = `${productName} added to cart`;
-document.body.appendChild(toast);
-setTimeout(() => {
-toast.remove();
-}, 3000);
-});
-});
-});
-</script>
-<script id="newsletterHandling">
-document.addEventListener('DOMContentLoaded', function() {
-const newsletterForm = document.querySelector('form');
-newsletterForm.addEventListener('submit', function(e) {
-e.preventDefault();
-const emailInput = this.querySelector('input[type="email"]');
-if (!emailInput.value) {
-const toast = document.createElement('div');
-toast.className = 'fixed bottom-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-toast.textContent = 'Please enter your email address';
-document.body.appendChild(toast);
-setTimeout(() => toast.remove(), 3000);
-return;
-}
-emailInput.value = '';
-const toast = document.createElement('div');
-toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-toast.textContent = 'Thank you for subscribing!';
-document.body.appendChild(toast);
-setTimeout(() => toast.remove(), 3000);
-});
-});
-</script>
+    <!-- Homepage: Lipstick Shop -->
+    <div id="homepage" style="display:none;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+            <a class="navbar-brand" href="#" id="navHome">Lipstick Shop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="navHomeLink">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="navProductsLink">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="navCartLink">Cart <span class="badge badge-light" id="cartCount" style="color:#d72660;">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="homepageContent">
+            <header class="jumbotron jumbotron-fluid text-center bg-danger text-white mb-0">
+                <div class="container">
+                    <h1 class="display-4">Welcome to Lipstick Shop!</h1>
+                    <p class="lead">Discover and buy the best lipsticks for every occasion.</p>
+                </div>
+            </header>
+            <main class="container my-5">
+                <h2 class="mb-4 text-center">Our Bestsellers</h2>
+                <div class="row" id="bestsellersRow">
+                    <!-- Bestsellers will be rendered here -->
+                </div>
+                <h3 class="mt-5 mb-3 text-center">Why Shop With Us?</h3>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <span class="display-4 text-danger">&#128176;</span>
+                        </div>
+                        <h5>Affordable Prices</h5>
+                        <p>Get premium quality at the best prices.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <span class="display-4 text-danger">&#128230;</span>
+                        </div>
+                        <h5>Fast Shipping</h5>
+                        <p>Quick and reliable delivery to your doorstep.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <span class="display-4 text-danger">&#128150;</span>
+                        </div>
+                        <h5>Customer Satisfaction</h5>
+                        <p>Our customers love our products and service!</p>
+                    </div>
+                </div>
+            </main>
+            <footer class="bg-light text-center py-3">
+                &copy; 2024 Lipstick Shop. All rights reserved.
+            </footer>
+        </div>
+        <!-- Product Page -->
+        <div id="productPage" style="display:none;">
+            <div class="container my-5">
+                <h2 class="mb-4 text-center">All Lipsticks</h2>
+                <div class="row" id="productList">
+                    <!-- Products will be rendered here -->
+                </div>
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be rendered here -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Cart Page -->
+        <div id="cartPage" style="display:none;">
+            <div class="container my-5">
+                <h2 class="mb-4 text-center">Your Cart</h2>
+                <div id="cartEmpty" class="alert alert-info text-center" style="display:none;">
+                    Your cart is empty.
+                </div>
+                <div id="cartTableWrapper">
+                    <table class="table cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Shade</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                            <!-- Cart items will be rendered here -->
+                        </tbody>
+                    </table>
+                    <div class="text-right font-weight-bold mb-3">
+                        Total: $<span id="cartTotal">0.00</span>
+                    </div>
+                </div>
+                <div id="checkoutSection" style="display:none;">
+                    <h4 class="mb-3">Checkout</h4>
+                    <form id="checkoutForm">
+                        <div class="form-group">
+                            <label class="lipstick-form-label">Payment Method</label>
+                            <div class="payment-methods">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="creditCardRadio" value="credit" required>
+                                    <label class="form-check-label" for="creditCardRadio">Credit Card</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransferRadio" value="bank" required>
+                                    <label class="form-check-label" for="bankTransferRadio">Bank Transfer</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="credit-card-fields">
+                            <div class="form-group">
+                                <label for="ccNumber" class="lipstick-form-label">Card Number</label>
+                                <input type="text" class="form-control" id="ccNumber" maxlength="19" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="ccExpiry" class="lipstick-form-label">Expiry</label>
+                                    <input type="text" class="form-control" id="ccExpiry" maxlength="5" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ccCVC" class="lipstick-form-label">CVC</label>
+                                    <input type="text" class="form-control" id="ccCVC" maxlength="4" placeholder="CVC">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bank-transfer-fields">
+                            <div class="form-group">
+                                <label for="bankName" class="lipstick-form-label">Bank Name</label>
+                                <input type="text" class="form-control" id="bankName" placeholder="Bank Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bankAccount" class="lipstick-form-label">Account Number</label>
+                                <input type="text" class="form-control" id="bankAccount" placeholder="Account Number">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn lipstick-login-btn btn-block py-2 mt-3">Pay Now</button>
+                        <div id="checkoutSuccess" class="alert alert-success mt-3" style="display:none;">
+                            Payment successful! Thank you for your purchase.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 4 JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // --- Demo Data ---
+        const PRODUCTS = [
+            {
+                id: 1,
+                name: "Red Velvet",
+                shade: "Classic Red",
+                price: 19.99,
+                img: "https://images.pexels.com/photos/2533260/pexels-photo-2533260.jpeg?auto=compress&w=400&q=80",
+                desc: "A classic, bold red lipstick for a timeless look.",
+                bestseller: true
+            },
+            {
+                id: 2,
+                name: "Nude Bliss",
+                shade: "Nude",
+                price: 17.99,
+                img: "https://images.pexels.com/photos/461213/pexels-photo-461213.jpeg?auto=compress&w=400&q=80",
+                desc: "Perfect for everyday wear, this nude shade flatters all skin tones.",
+                bestseller: true
+            },
+            {
+                id: 3,
+                name: "Berry Crush",
+                shade: "Berry",
+                price: 18.99,
+                img: "https://images.pexels.com/photos/3772622/pexels-photo-3772622.jpeg?auto=compress&w=400&q=80",
+                desc: "A vibrant berry shade for a fun and flirty look.",
+                bestseller: true
+            },
+            {
+                id: 4,
+                name: "Coral Dream",
+                shade: "Coral",
+                price: 16.99,
+                img: "https://images.pexels.com/photos/3772621/pexels-photo-3772621.jpeg?auto=compress&w=400&q=80",
+                desc: "A fresh coral shade for a lively summer look.",
+                bestseller: false
+            },
+            {
+                id: 5,
+                name: "Pink Passion",
+                shade: "Pink",
+                price: 15.99,
+                img: "https://images.pexels.com/photos/3772620/pexels-photo-3772620.jpeg?auto=compress&w=400&q=80",
+                desc: "A passionate pink for a playful mood.",
+                bestseller: false
+            },
+            {
+                id: 6,
+                name: "Mauve Muse",
+                shade: "Mauve",
+                price: 18.49,
+                img: "https://images.pexels.com/photos/3772619/pexels-photo-3772619.jpeg?auto=compress&w=400&q=80",
+                desc: "A sophisticated mauve for every occasion.",
+                bestseller: false
+            },
+            {
+                id: 7,
+                name: "Plum Desire",
+                shade: "Plum",
+                price: 20.99,
+                img: "https://images.pexels.com/photos/3772618/pexels-photo-3772618.jpeg?auto=compress&w=400&q=80",
+                desc: "A deep plum for a bold statement.",
+                bestseller: false
+            },
+            {
+                id: 8,
+                name: "Peachy Keen",
+                shade: "Peach",
+                price: 14.99,
+                img: "https://images.pexels.com/photos/3772617/pexels-photo-3772617.jpeg?auto=compress&w=400&q=80",
+                desc: "A sweet peach shade for a natural look.",
+                bestseller: false
+            },
+            {
+                id: 9,
+                name: "Wine Not",
+                shade: "Wine",
+                price: 21.99,
+                img: "https://images.pexels.com/photos/3772616/pexels-photo-3772616.jpeg?auto=compress&w=400&q=80",
+                desc: "A rich wine color for evening glamour.",
+                bestseller: false
+            },
+            {
+                id: 10,
+                name: "Sunset Glow",
+                shade: "Orange",
+                price: 16.49,
+                img: "https://images.pexels.com/photos/3772615/pexels-photo-3772615.jpeg?auto=compress&w=400&q=80",
+                desc: "A glowing orange for a radiant finish.",
+                bestseller: false
+            },
+            {
+                id: 11,
+                name: "Mocha Magic",
+                shade: "Brown",
+                price: 17.49,
+                img: "https://images.pexels.com/photos/3772614/pexels-photo-3772614.jpeg?auto=compress&w=400&q=80",
+                desc: "A magical mocha for a chic look.",
+                bestseller: false
+            },
+            {
+                id: 12,
+                name: "Rose Petal",
+                shade: "Rose",
+                price: 18.29,
+                img: "https://images.pexels.com/photos/3772613/pexels-photo-3772613.jpeg?auto=compress&w=400&q=80",
+                desc: "A delicate rose for a soft touch.",
+                bestseller: false
+            }
+        ];
+
+        // --- Cart State ---
+        let cart = [];
+
+        // --- Paging State ---
+        let currentProductPage = 1;
+        const PRODUCTS_PER_PAGE = 10;
+
+        // --- Helper Functions ---
+        function containsFullwidth(str) {
+            return /[\uFF01-\uFF60\uFFE0-\uFFE6]/.test(str);
+        }
+        function isPasswordValid(pw) {
+            if (pw.indexOf(',') !== -1) return false;
+            if (pw.indexOf('.') !== -1) return false;
+            if (containsFullwidth(pw)) return false;
+            return true;
+        }
+        function formatPrice(num) {
+            return num.toFixed(2);
+        }
+        function getCartCount() {
+            return cart.reduce((sum, item) => sum + item.qty, 0);
+        }
+        function getCartTotal() {
+            return cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+        }
+        function findProductById(id) {
+            return PRODUCTS.find(p => p.id === id);
+        }
+        function updateCartCountBadge() {
+            document.getElementById('cartCount').textContent = getCartCount();
+        }
+
+        // --- Render Functions ---
+        function renderBestsellers() {
+            const bestsellers = PRODUCTS.filter(p => p.bestseller).slice(0, 3);
+            const row = document.getElementById('bestsellersRow');
+            row.innerHTML = '';
+            bestsellers.forEach(product => {
+                row.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card lipstick-card shadow-sm">
+                        <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text">${product.desc}</p>
+                            <p class="font-weight-bold text-danger mb-2">$${formatPrice(product.price)}</p>
+                            <button class="btn btn-danger btn-block add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        }
+
+        function renderProductPage(page = 1) {
+            const start = (page - 1) * PRODUCTS_PER_PAGE;
+            const end = start + PRODUCTS_PER_PAGE;
+            const products = PRODUCTS.slice(start, end);
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';
+            products.forEach(product => {
+                productList.innerHTML += `
+                <div class="col-md-4 mb-4">
+                    <div class="card lipstick-card shadow-sm h-100">
+                        <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text">${product.desc}</p>
+                            <p class="mb-1"><b>Shade:</b> ${product.shade}</p>
+                            <p class="font-weight-bold text-danger mb-2">$${formatPrice(product.price)}</p>
+                            <button class="btn btn-danger mt-auto add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            renderPagination(page);
+        }
+
+        function renderPagination(currentPage) {
+            const totalPages = Math.ceil(PRODUCTS.length / PRODUCTS_PER_PAGE);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.innerHTML += `
+                    <li class="page-item${i === currentPage ? ' active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                    </li>
+                `;
+            }
+        }
+
+        function renderCart() {
+            const cartTableBody = document.getElementById('cartTableBody');
+            const cartEmpty = document.getElementById('cartEmpty');
+            const cartTableWrapper = document.getElementById('cartTableWrapper');
+            const checkoutSection = document.getElementById('checkoutSection');
+            cartTableBody.innerHTML = '';
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartTableWrapper.style.display = 'none';
+                checkoutSection.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartTableWrapper.style.display = '';
+                checkoutSection.style.display = '';
+                cart.forEach(item => {
+                    cartTableBody.innerHTML += `
+                        <tr>
+                            <td>
+                                <img src="${item.img}" alt="${item.name}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">
+                                <span class="ml-2">${item.name}</span>
+                            </td>
+                            <td>${item.shade}</td>
+                            <td>$${formatPrice(item.price)}</td>
+                            <td>
+                                <input type="number" min="1" class="form-control form-control-sm cart-qty-input" data-id="${item.id}" value="${item.qty}" style="width:70px;">
+                            </td>
+                            <td>$${formatPrice(item.price * item.qty)}</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-danger remove-cart-btn" data-id="${item.id}">&times;</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+            document.getElementById('cartTotal').textContent = formatPrice(getCartTotal());
+        }
+
+        // --- Event Handlers ---
+        function addToCart(productId) {
+            const product = findProductById(productId);
+            if (!product) return;
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    shade: product.shade,
+                    price: product.price,
+                    img: product.img,
+                    qty: 1
+                });
+            }
+            updateCartCountBadge();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCountBadge();
+        }
+
+        function updateCartQty(productId, qty) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.qty = Math.max(1, qty);
+            }
+            updateCartCountBadge();
+        }
+
+        // --- Navigation ---
+        function showPage(page) {
+            // Hide all
+            document.getElementById('homepageContent').style.display = 'none';
+            document.getElementById('productPage').style.display = 'none';
+            document.getElementById('cartPage').style.display = 'none';
+            if (page === 'home') {
+                document.getElementById('homepageContent').style.display = '';
+            } else if (page === 'products') {
+                document.getElementById('productPage').style.display = '';
+            } else if (page === 'cart') {
+                document.getElementById('cartPage').style.display = '';
+            }
+        }
+
+        // --- Login logic ---
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var account = document.getElementById('inputAccount').value.trim();
+            var password = document.getElementById('inputPassword').value;
+            var passwordErrorDiv = document.getElementById('passwordError');
+            var loginErrorDiv = document.getElementById('loginError');
+            passwordErrorDiv.style.display = 'none';
+            loginErrorDiv.style.display = 'none';
+
+            if (!isPasswordValid(password)) {
+                passwordErrorDiv.style.display = 'block';
+                return;
+            }
+
+            // Demo login: account "hamm", password "123"
+            if (account === 'hamm' && password === '123') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('homepage').style.display = 'block';
+                renderBestsellers();
+                updateCartCountBadge();
+            } else {
+                loginErrorDiv.style.display = 'block';
+            }
+        });
+
+        // Hide error on input
+        document.getElementById('inputAccount').addEventListener('input', function() {
+            document.getElementById('loginError').style.display = 'none';
+            document.getElementById('passwordError').style.display = 'none';
+        });
+        document.getElementById('inputPassword').addEventListener('input', function() {
+            document.getElementById('loginError').style.display = 'none';
+            document.getElementById('passwordError').style.display = 'none';
+        });
+
+        // Logout logic and navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            document.getElementById('navHome').addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('home');
+            });
+            document.getElementById('navHomeLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('home');
+            });
+            document.getElementById('navProductsLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('products');
+                renderProductPage(currentProductPage);
+            });
+            document.getElementById('navCartLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('cart');
+                renderCart();
+            });
+
+            var logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('homepage').style.display = 'none';
+                    document.getElementById('login-container').style.display = 'block';
+                    document.getElementById('loginForm').reset();
+                    document.getElementById('loginError').style.display = 'none';
+                    document.getElementById('passwordError').style.display = 'none';
+                    cart = [];
+                    updateCartCountBadge();
+                });
+            }
+
+            // Add to cart from homepage bestsellers
+            document.getElementById('homepage').addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart-btn')) {
+                    const id = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(id);
+                    updateCartCountBadge();
+                }
+            });
+            // Add to cart and paging from product page
+            document.getElementById('productPage').addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart-btn')) {
+                    const id = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(id);
+                    updateCartCountBadge();
+                }
+                if (e.target.classList.contains('page-link')) {
+                    e.preventDefault();
+                    const page = parseInt(e.target.getAttribute('data-page'));
+                    if (!isNaN(page)) {
+                        currentProductPage = page;
+                        renderProductPage(page);
+                    }
+                }
+            });
+
+            // Cart page events
+            document.getElementById('cartPage').addEventListener('input', function(e) {
+                if (e.target.classList.contains('cart-qty-input')) {
+                    const id = parseInt(e.target.getAttribute('data-id'));
+                    let qty = parseInt(e.target.value);
+                    if (isNaN(qty) || qty < 1) qty = 1;
+                    updateCartQty(id, qty);
+                    renderCart();
+                }
+            });
+            document.getElementById('cartPage').addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-cart-btn')) {
+                    const id = parseInt(e.target.getAttribute('data-id'));
+                    removeFromCart(id);
+                    renderCart();
+                }
+            });
+
+            // Payment method toggle
+            document.getElementById('cartPage').addEventListener('change', function(e) {
+                if (e.target.name === 'paymentMethod') {
+                    const creditFields = document.querySelector('.credit-card-fields');
+                    const bankFields = document.querySelector('.bank-transfer-fields');
+                    if (e.target.value === 'credit') {
+                        creditFields.style.display = '';
+                        bankFields.style.display = 'none';
+                    } else if (e.target.value === 'bank') {
+                        creditFields.style.display = 'none';
+                        bankFields.style.display = '';
+                    }
+                }
+            });
+
+            // Checkout form
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Simple validation for demo
+                const method = document.querySelector('input[name="paymentMethod"]:checked');
+                if (!method) return;
+                let valid = true;
+                if (method.value === 'credit') {
+                    if (!document.getElementById('ccNumber').value.trim() ||
+                        !document.getElementById('ccExpiry').value.trim() ||
+                        !document.getElementById('ccCVC').value.trim()) {
+                        valid = false;
+                    }
+                } else if (method.value === 'bank') {
+                    if (!document.getElementById('bankName').value.trim() ||
+                        !document.getElementById('bankAccount').value.trim()) {
+                        valid = false;
+                    }
+                }
+                if (!valid) {
+                    alert('Please fill in all payment details.');
+                    return;
+                }
+                // Simulate payment
+                document.getElementById('checkoutSuccess').style.display = 'block';
+                setTimeout(function() {
+                    cart = [];
+                    updateCartCountBadge();
+                    renderCart();
+                    document.getElementById('checkoutSuccess').style.display = 'none';
+                    showPage('home');
+                }, 1500);
+            });
+        });
+
+        // Order flow: Product page -> Add to cart -> Cart -> Payment
+        // Already handled by navigation and event handlers above
+
+    </script>
 </body>
 </html>
